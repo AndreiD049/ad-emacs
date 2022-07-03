@@ -5,9 +5,9 @@
 ;;; (global-set-key (kbd "M-S-<up>") #'ad-swap-up)
 
 ;;; Code:
-;; Swap lines
 (require 'ad-utils)
 
+;; Swap lines
 (defun ad-swap-lines (direction)
   "Swap current line with the line specified by DIRECTION.
 DIRECTION argument is a number, if positive, swaps line with the one above,
