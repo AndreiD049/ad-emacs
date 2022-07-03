@@ -1,12 +1,12 @@
 ;;; swap-lines.el --- Custom functions for swapping lines around
 ;;; Commentary:
 ;;; Useful bindings:
-;;; (global-set-key (kbd "M-S-<down>") #'ad/swap-down)
-;;; (global-set-key (kbd "M-S-<up>") #'ad/swap-up)
+;;; (global-set-key (kbd "M-S-<down>") #'ad-swap-down)
+;;; (global-set-key (kbd "M-S-<up>") #'ad-swap-up)
 
 ;;; Code:
 ;; Swap lines
-(defun ad/swap-lines (direction)
+(defun ad-swap-lines (direction)
   "Swap current line with the line specified by DIRECTION.
 DIRECTION argument is a number, if positive, swaps line with the one above,
 else with one below"
@@ -17,23 +17,23 @@ else with one below"
     (forward-line -1)
     (move-to-column column)))
 
-(defun ad/swap-up (start end)
+(defun ad-swap-up (start end)
   "Swap line with the one above.
 START and END show the booundaries of the active region"
   (interactive "*r")
   (if (use-region-p)
-      (ad/move-region -1 start end)
-    (ad/swap-lines -1)))
+      (ad-move-region -1 start end)
+    (ad-swap-lines -1)))
 
-(defun ad/swap-down (start end)
+(defun ad-swap-down (start end)
   "Swap line with the one above.
 START and END show the booundaries of the active region"
   (interactive "*r")
   (if (use-region-p)
-      (ad/move-region 1 start end)
-    (ad/swap-lines 1)))
+      (ad-move-region 1 start end)
+    (ad-swap-lines 1)))
 
-(defun ad/move-region (direction start end)
+(defun ad-move-region (direction start end)
   "Move whole region up or down.
 DIRECTION is a number, if positive, move region down, else up.
 START and END show the region boundaries"
@@ -54,5 +54,5 @@ START and END show the region boundaries"
       (if exchange-point (exchange-point-and-mark))
       )))
 
-(provide 'ad/swap-lines)
+(provide 'ad-swap-lines)
 ;;; swap-lines.el ends here
