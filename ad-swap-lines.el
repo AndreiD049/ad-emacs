@@ -21,7 +21,8 @@ else with one below"
 (defun ad-swap-up (start end)
   "Swap line with the one above.
 START and END show the booundaries of the active region"
-  (interactive "*d\nm")
+  (interactive (list (region-beginning) (region-end)))
+  (barf-if-buffer-read-only)
   (if (use-region-p)
       (ad-move-region -1 start end)
     (ad-swap-lines -1)))
@@ -29,7 +30,8 @@ START and END show the booundaries of the active region"
 (defun ad-swap-down (start end)
   "Swap line with the one above.
 START and END show the booundaries of the active region"
-  (interactive "*d\nm")
+  (interactive (list (region-beginning) (region-end)))
+  (barf-if-buffer-read-only)
   (if (use-region-p)
       (ad-move-region 1 start end)
     (ad-swap-lines 1)))
